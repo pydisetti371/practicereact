@@ -9,6 +9,7 @@ class ErrorBoundary extends Component {
         }
     }
     componentDidCatch(error, errorInfo) {
+        // This is for to log the error info into analytic service.
         console.log(error,"error11")
         console.log(errorInfo,"errorInfo12")
         this.setState({
@@ -17,6 +18,7 @@ class ErrorBoundary extends Component {
         })
     }
     static getDerivedStateFromError(error) {
+        // This method will call when any error happended due to rerendering child component and update the state
         // Update state so the next render will show the fallback UI.
         return { hasError: true };
       }
