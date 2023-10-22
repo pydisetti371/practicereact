@@ -21,7 +21,7 @@ class Header extends Component {
                 </a>
                 <p>Learn React from class Base Approach</p>
                 <ErrorBoundary>
-
+                   <Counter />  
                 </ErrorBoundary>
 
             </div>

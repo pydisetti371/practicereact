@@ -8,12 +8,12 @@ function App() {
   return (
     <div className="App">
       <div className='App-header'>
-      <Header />
-       <Body />
+        <Header />
+        <Body />
       </div>
-      
+
       {/* <FunctionBase /> */}
-      
+
     </div>
   );
 }
