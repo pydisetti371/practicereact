@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { createPortal } from 'react-dom';
+import Search from './search.js';
 class Counter extends Component {
     constructor() {
         super()
@@ -34,10 +35,10 @@ class Counter extends Component {
 
     displayButtons = () => {
         return (
-            <div>
+            <>
                 <button onClick={this.incrementCount}>+</button>
                 <button onClick={this.decrementCount}>-</button>
-            </div>
+            </>
         )
     }
     render() {
@@ -56,6 +57,10 @@ class Counter extends Component {
                     this.displayButtons(),
                     displayButtons
                 )}
+                <div>
+                    <Search />
+                </div>
+
             </div>
         )
     }
