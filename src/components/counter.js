@@ -13,7 +13,7 @@ class Counter extends Component {
         const doc = document.getElementById("displayButtons");
         if (doc !== null) {
             let displayThroughPortal = document.getElementById("displayButtons");
-            console.log(displayThroughPortal, "displayThroughPortal")
+            // console.log(displayThroughPortal, "displayThroughPortal")
             this.setState({
                 displayButtons: displayThroughPortal
             })
