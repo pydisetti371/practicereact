@@ -5,7 +5,7 @@ import Counter from './counter.js';
 class Header extends Component {
     render() {
         return (
-            <div>
+            <div className="App-header">
 
                 <img src={logo} className="App-logo" alt="logo" />
                 <p>
