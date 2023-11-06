@@ -1,50 +1,22 @@
 import React, { Component } from 'react';
-const listDetailsHoc = (WrappedComponent, type) => {
-    class Details extends Component {
+import { connect } from 'react-redux';
+const listDetailsHoc = (WrappedComponent) => {
+    return class Details extends Component {
         constructor(props) {
             super()
             this.state = {
                 SOrC: []
             }
         }
-        componentDidMount() {
-            if (type == "college") {
-                this.setState({
-                    SOrC: [{
-                        number: 1,
-                        estaBlished: 1993,
-                        college: "Sri Chaitnya Jr College",
-                        name: "revanth"
-                    },
-                    {
-                        number: 2,
-                        estaBlished: 1993,
-                        college: "Sri Chaitnya Jr College",
-                        name: "Mahesh"
-                    }]
-                })
-            }
-            else {
-                this.setState({
-                    SOrC: [{
-                        number: 1,
-                        age: 26,
-                        school: "Geethanjali",
-                        name: "Revanth"
-                    },
-                    {
-                        number: 2,
-                        age: 26,
-                        school: "Geethanjali",
-                        name: "Madhan"
-                    }]
-                })
-            }
-        }
 
-        displayContent = () => {
-            console.log(this.state.SOrC)
-            const { SOrC } = this.state
+        displayContent = (type) => {
+            const { collegeList, schoolList } = this.props;
+            let SOrC = [];
+            if (type === "college") {
+                SOrC = collegeList
+            } else {
+                SOrC = schoolList
+            }
             return (
                 <div>
                     <table className='table'>
@@ -76,23 +48,36 @@ const listDetailsHoc = (WrappedComponent, type) => {
                     </table>
 
                 </div >
-
-
-
             )
         }
         render() {
-            const { SOrC } = this.state;
             return (
+                <>
+                    <WrappedComponent
+                        // list={SOrC}
+                        displayContent={this.displayContent}
+                    />
+                </>
 
-                <WrappedComponent
-                    list={SOrC}
-                    displayContent={this.displayContent}
-                />
             )
         }
 
     }
-    return Details
+
 }
-export default listDetailsHoc;
+
+function mapStateToProps(state) {
+    const data = state;
+
+    if (data !== undefined) {
+
+        const { collegeList, schoolList } = state.list
+        return {
+            collegeList,
+            schoolList
+        }
+    }
+
+}
+// export default connect(mapStateToProps)(listDetailsHoc(WrappedComponent));
+export default (WrappedComponent) => connect(mapStateToProps)(listDetailsHoc(WrappedComponent))

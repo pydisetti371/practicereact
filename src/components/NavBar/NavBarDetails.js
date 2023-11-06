@@ -25,7 +25,6 @@ class NavBarDetails extends Component {
     }
 
     collgeList = () => {
-        console.log("collegeList")
         this.setState({
             collegeList: true
         })
@@ -33,7 +32,6 @@ class NavBarDetails extends Component {
     }
 
     schoolList = () => {
-        console.log("school list", this.props)
         this.setState({
              schoolList: true
         })

@@ -1,19 +1,16 @@
-import React, { useState } from 'react';
-import { Paragraph } from './collegeList.js'
+import React, { useEffect } from 'react';
 import listDetailsHoc from '../listDetailsHoc.js';
 function SchoolList(props) {
-//   console.log(props.list,"props in studentLisr")
-    // const schoolList = props && props.list || [];
     return (
         <div>
-                SchoolList 
-                <div>
-                {props?.displayContent()}
-                </div>
+            SchoolList
+            <div>
+                {props?.displayContent("school")}
+            </div>
         </div>
     )
 }
 
-const schoolList = listDetailsHoc(SchoolList,"schoolList")
+const schoolList = listDetailsHoc(SchoolList)
 
 export default schoolList;
