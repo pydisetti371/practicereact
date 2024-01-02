@@ -19,7 +19,8 @@ class NavBarDetails extends Component {
         super()
         this.state = {
             collegeList: false,
-            schoolList: false
+            schoolList: false,
+            callbackPage: false
         }
 
     }
@@ -41,7 +42,7 @@ class NavBarDetails extends Component {
 
     }
     render() {
-        const { collegeList,schoolList } = this.state;
+        const { collegeList,schoolList,callbackPage } = this.state;
         return (
             <>
                 <StyledDiv>
@@ -59,6 +60,9 @@ class NavBarDetails extends Component {
                                     <StyledListLi>
                                         <a className="nav-link" href="#">Teachers List</a>
                                     </StyledListLi>
+                                    <StyledListLi>
+                                        <a className='nav-link' href="#" onClick={() => this.setState({ callbackPage: true})}>Practice callback</a>
+                                    </StyledListLi>
                                     {/* <li class="nav-item">
                                     <a class="nav-link disabled" aria-disabled="true">Disabled</a>
                                 </li> */}
@@ -71,6 +75,7 @@ class NavBarDetails extends Component {
                 <div>
                     {collegeList && <Navigate to="/collegeList" />}
                     {schoolList && <Navigate to="/schoolList" />}
+                    {callbackPage && <Navigate to="/callback" />}
                 </div>
             </>
         )
