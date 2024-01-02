@@ -97,6 +97,30 @@ console.log(letters)
   }
    
   // Recursion(list)
+
+function countValues(str) {
+//   console.log(str)
+ 
+  let combineStr = '';
+  let overallLen = str.length;
+  let sliceVal = 0
+   for (let i = 0; i< str.length; i++) {
+     let index = str.length - overallLen;
+   
+     combineStr += str[index];
+     
+      sliceVal = str.slice(index = index + 1)
+    console.log(combineStr)
+   }
+  
+//    console.log(sliceVal)
+   if (sliceVal.length != 0) {
+     countValues(sliceVal)
+   }
+ 
+}
+
+countValues('abcdefgh');
   
   
   const array = [
