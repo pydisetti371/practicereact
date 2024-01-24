@@ -136,6 +136,24 @@ countValues('abcdefgh');
     
   }
   arrayToNestedObj(array)
+
+let num = [1,2,3,4,0,5]
+
+// print range of numbers
+function printRangeNumbers(numbers,min,max) {
+  let printRangeValues = [];
+  let minValue = 0,
+      maxValue = max;
+  for (let i = minValue; i<max; i++) {
+
+     if (!num.includes(i)) {
+
+      printRangeValues.push(i)
+     }
+  }
+  return printRangeValues
+}
+console.log(printRangeNumbers(num,0,20))
   
   
   
